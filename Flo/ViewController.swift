@@ -10,9 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var counterView: CounterView!
+    @IBOutlet weak var counterLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        counterLabel.text = String(counterView.counter)
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +23,15 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func addButtonPressed(_ sender: Any) {
+        counterView.counter += 1
+        counterLabel.text = String(counterView.counter)
+    }
+
+    @IBAction func decreaseButtonPressed(_ sender: Any) {
+        counterView.counter -= 1
+        counterLabel.text = String(counterView.counter)
+    }
 
 }
 
